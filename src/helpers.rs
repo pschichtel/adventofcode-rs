@@ -31,9 +31,3 @@ pub fn parse_lines<'a, F, O, E>(
         separated_list0(line_ending, parser)(i)
     }
 }
-
-pub fn print_solutions(name: &str, part1: &str, part2: &str) {
-    println!("Solutions for {}:", name);
-    println!("Part 1: {}", part1);
-    println!("Part 2: {}", part2);
-}
