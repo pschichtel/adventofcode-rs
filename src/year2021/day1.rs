@@ -7,7 +7,7 @@ fn parse_input(input: &str) -> Vec<i32> {
 }
 
 fn count_raises(input: &Vec<i32>) -> usize {
-    input.windows(2).map(|a| a[1] - a[0]).filter(|a| *a > 0).count()
+    input.windows(2).filter(|a| a[1] - a[0] > 0).count()
 }
 
 #[test]
