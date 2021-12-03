@@ -32,7 +32,7 @@ fn parse_instr(input: &str) -> IResult<&str, Instr> {
 }
 
 fn parse_input(input: &str) -> Vec<Instr> {
-    parse_lines(parse_instr)(input).unwrap().1
+    parse_lines(parse_instr).parse(input).unwrap().1
 }
 
 fn simple_interpretation(instructions: &Vec<Instr>) -> (i32, i32) {

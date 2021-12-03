@@ -1,9 +1,10 @@
 use crate::helpers::{parse_lines, parse_number};
+use nom::Parser;
 
 const INPUT: &str = include_str!("inputs/day01.txt");
 
 fn parse_input(input: &str) -> Vec<i32> {
-    parse_lines(parse_number)(input).unwrap().1
+    parse_lines(parse_number).parse(input).unwrap().1
 }
 
 fn count_raises(input: &Vec<i32>) -> usize {

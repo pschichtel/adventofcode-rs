@@ -22,7 +22,7 @@ pub fn parse_number(input: &str) -> IResult<&str, i32> {
 
 pub fn parse_lines<'a, F, O, E>(
     parser: F
-) -> impl FnMut(&'a str) -> IResult<&'a str, Vec<O>, E>
+) -> impl Parser<&'a str, Vec<O>, E>
     where
         F: Parser<&'a str, O, E> + Copy,
         E: ParseError<&'a str>
