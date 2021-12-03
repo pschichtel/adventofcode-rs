@@ -2,7 +2,7 @@ use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::{IResult, Parser};
 use nom::sequence::preceded;
-use crate::helpers::{parse_lines, parse_number};
+use crate::helpers::{parse_lines, parse_decimal_number};
 use crate::year2021::day02::Instr::{Down, Forward, Up};
 
 const INPUT: &str = include_str!("inputs/day02.txt");
@@ -16,15 +16,15 @@ enum Instr {
 }
 
 fn parse_forward(input: &str) -> IResult<&str, Instr> {
-    preceded(tag("forward "), parse_number).map(|n| { Instr::Forward(n) }).parse(input)
+    preceded(tag("forward "), parse_decimal_number).map(|n| { Instr::Forward(n) }).parse(input)
 }
 
 fn parse_up(input: &str) -> IResult<&str, Instr> {
-    preceded(tag("up "), parse_number).map(|n| { Instr::Up(n) }).parse(input)
+    preceded(tag("up "), parse_decimal_number).map(|n| { Instr::Up(n) }).parse(input)
 }
 
 fn parse_down(input: &str) -> IResult<&str, Instr> {
-    preceded(tag("down "), parse_number).map(|n| { Instr::Down(n) }).parse(input)
+    preceded(tag("down "), parse_decimal_number).map(|n| { Instr::Down(n) }).parse(input)
 }
 
 fn parse_instr(input: &str) -> IResult<&str, Instr> {
